@@ -14,7 +14,7 @@
     .border-isuzu-red { border-color: #E60012; }
   </style>
 </head>
-<body class="bg-[#0D0F12] text-slate-100 min-h-screen p-4 md:p-8 selection:bg-red-600 selection:text-white">
+<body class="bg-[#F4F5F8] text-slate-800 min-h-screen p-4 md:p-8">
   <div class="max-w-7xl mx-auto space-y-6">
 
     <!-- Top Navigation / Header chuẩn phong cách ISUZU -->
@@ -23,7 +23,7 @@
         <div class="flex items-center gap-5">
           <!-- Logo ISUZU Vector Chuẩn đỏ-trắng -->
           <div class="h-12 px-4 bg-white rounded-xl flex items-center justify-center shadow-md flex-shrink-0 border border-zinc-200">
-            <svg class="h-6 w-auto" viewBox="0 0 200 40" fill="#E60012" xmlns="http://www.w3.org/2000/svg">
+            <svg class="h-6 w-auto" viewBox="0 0 200 40" fill="#E60012" xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYyJ5iX0-1fGJwFekfO0b_CuTjVe2jHVsSVCqyRp0pJIwSqfyer964qAL&s=10">
               <path d="M0 8h10v24H0V8zm18 0h28v6H30v3h14v6H30v3h16v6H18V8zm34 0h10v18h16V8h10v24H52V8zm44 0h10v24H96V8zm16 0h28v6h-16v3h14v6h-14v3h16v6h-28V8zm34 0h28v6h-16v18h-12V8z" />
             </svg>
           </div>
@@ -243,7 +243,7 @@
         `3. Gợi ý hành động kỹ thuật cần làm trong tuần tiếp theo.`;
 
       try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
