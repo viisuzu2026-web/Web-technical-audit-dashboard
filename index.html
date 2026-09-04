@@ -52,11 +52,11 @@
             ✦
           </div>
           <div>
-            <h2 class="text-lg font-extrabold text-slate-900 uppercase tracking-wide">Chuyên gia AI Đánh giá Kỹ thuật</h2>
-            <p class="text-xs md:text-sm text-slate-500 font-medium">Tự động đọc 20 chỉ số kỹ thuật và khuyến nghị giải pháp khắc phục</p>
+            <h2 class="text-lg font-extrabold text-slate-900 uppercase tracking-wide">Chuyên gia Kỹ thuật Đánh giá Tự động</h2>
+            <p class="text-xs md:text-sm text-slate-500 font-medium">Tự động đọc 20 chỉ số kỹ thuật và đề xuất giải pháp khắc phục</p>
           </div>
         </div>
-        <span id="ai-status" class="text-xs px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-bold">Đang tải...</span>
+        <span id="ai-status" class="text-xs px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-bold">Đang tính toán...</span>
       </div>
       <div id="ai-review-content" class="text-sm md:text-base text-slate-700 leading-relaxed space-y-2 pt-1">
         Đang đồng bộ dữ liệu từ Google Sheets để phân tích...
@@ -189,9 +189,8 @@
   </div>
 
   <script>
-    // --- CẤU HÌNH THÔNG TIN DỰ ÁN ---
+    // --- CẤU HÌNH LIÊN KẾT SHEET ---
     const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBoBn607oWc00FQHep0KFlICTpD0Pxz6EH4YxyRTI8-jUWDC_3xJfUkP-fHnjEvEoAYOLVquBoG_0-/pub?gid=0&single=true&output=csv";
-    const GEMINI_API_KEY = "AIzaSyBKEM3MI1S6Ea0aBNuOEM_YzYqJHnplef8";
 
     function setBadge(elementId, isPass) {
       const el = document.getElementById(elementId);
@@ -211,62 +210,113 @@
       el.className = isPass ? "font-black text-emerald-600 text-base" : "font-black text-[#8c0000] text-base";
     }
 
-    async function callGeminiReview(data) {
+    // BỘ PHÂN TÍCH CHUYÊN GIA NỘI BỘ (Chính xác, tức thì, không lỗi Key)
+    function generateAuditReview(data) {
       const aiStatus = document.getElementById('ai-status');
       const aiContent = document.getElementById('ai-review-content');
-      
-      if (!GEMINI_API_KEY || GEMINI_API_KEY.includes("DÁN_API_KEY")) {
-        aiStatus.innerText = "Chưa cấu hình Key";
-        aiContent.innerHTML = "<em>Vui lòng cập nhật GEMINI_API_KEY trong file code.</em>";
-        return;
+
+      const uptime = parseFloat(data.Uptime) || 0;
+      const ttfb = parseInt(data.TTFB) || 0;
+      const ssl = parseInt(data.SSL_Days) || 0;
+      const mobSpeed = parseInt(data.Mobile_Speed) || 0;
+      const deskSpeed = parseInt(data.Desktop_Speed) || 0;
+      const lcp = parseFloat(data.LCP) || 0;
+      const inp = parseInt(data.INP) || 0;
+      const cls = parseFloat(data.CLS) || 0;
+      const brokenLinks = parseInt(data.Broken_Links) || 0;
+      const redirectChains = parseInt(data.Redirect_Chains) || 0;
+      const mediaErrors = parseInt(data.Media_Errors) || 0;
+      const sitemap = (data.Sitemap_Status || '').toUpperCase();
+      const indexErrors = parseInt(data.Index_Errors) || 0;
+      const robots = (data.Robots_Status || '').toUpperCase();
+      const formTest = (data.Form_Lead_Test || '').toLowerCase();
+      const callTest = (data.Call_Test || '').toLowerCase();
+      const chatTest = (data.Chat_Test || '').toLowerCase();
+      const backup = (data.Backup_Status || '').toLowerCase();
+      const security = (data.Security_Scan || '').toLowerCase();
+
+      const issues = [];
+      const actions = [];
+
+      // 1. Hạ tầng
+      if (uptime < 99.9) {
+        issues.push(`Uptime chỉ đạt ${uptime}% (< 99.9%) có nguy cơ mất kết nối máy chủ`);
+        actions.push("Liên hệ nhà cung cấp Hosting/VPS kiểm tra log tải máy chủ");
+      }
+      if (ttfb > 600) {
+        issues.push(`Thời gian phản hồi máy chủ TTFB chậm (${ttfb}ms, chuẩn < 600ms)`);
+        actions.push("Bật bộ nhớ đệm máy chủ (Server Cache) hoặc định tuyến qua Cloudflare");
+      }
+      if (ssl < 30) {
+        issues.push(`Chứng chỉ SSL chỉ còn ${ssl} ngày nữa hết hạn`);
+        actions.push("Tiến hành gia hạn SSL sớm để tránh bị trình duyệt cảnh báo không an toàn");
       }
 
-      const prompt = `Bạn là một chuyên gia kỹ thuật web và bảo mật hệ thống. Dưới đây là bảng số liệu kiểm tra kỹ thuật định kỳ tuần này của website:\n` +
-        `- Ngày kiểm tra: ${data.Week_Date}\n` +
-        `- Uptime 7 ngày: ${data.Uptime}% (ngưỡng chuẩn >= 99.9%)\n` +
-        `- Phản hồi TTFB: ${data.TTFB}ms (ngưỡng chuẩn < 600ms)\n` +
-        `- Hạn SSL: ${data.SSL_Days} ngày (ngưỡng chuẩn > 30 ngày)\n` +
-        `- Điểm Speed: Mobile ${data.Mobile_Speed}/100 (chuẩn >= 70), Desktop ${data.Desktop_Speed}/100 (chuẩn >= 85)\n` +
-        `- Core Web Vitals: LCP ${data.LCP}s (chuẩn < 2.5s), INP ${data.INP}ms, CLS ${data.CLS} (chuẩn < 0.1)\n` +
-        `- Lỗi liên kết & tài nguyên: Link 404: ${data.Broken_Links}, Chuỗi Redirect: ${data.Redirect_Chains}, Media hỏng: ${data.Media_Errors}\n` +
-        `- SEO & Index: Sitemap: ${data.Sitemap_Status}, Lỗi Index GSC: ${data.Index_Errors}, File Robots.txt: ${data.Robots_Status}\n` +
-        `- Tính năng tương tác: Test Form: ${data.Form_Lead_Test}, Test Nút Gọi: ${data.Call_Test}, Test Chat: ${data.Chat_Test}\n` +
-        `- Sao lưu & Bảo mật: Backup: ${data.Backup_Status}, Quét mã độc: ${data.Security_Scan}\n\n` +
-        `Hãy viết một bản đánh giá chuyên nghiệp bằng tiếng Việt (khoảng 3 - 4 gạch đầu dòng súc tích):\n` +
-        `1. Tóm tắt tình trạng vận hành chung tuần này.\n` +
-        `2. Nêu rõ các hạng mục chưa đạt (nếu có) và tác động của nó.\n` +
-        `3. Gợi ý hành động kỹ thuật cần làm trong tuần tiếp theo.`;
-
-      try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }]
-          })
-        });
-
-        const resData = await response.json();
-
-        if (resData.error) {
-          throw new Error(resData.error.message || JSON.stringify(resData.error));
-        }
-
-        if (resData.candidates && resData.candidates[0]?.content?.parts?.[0]?.text) {
-          const text = resData.candidates[0].content.parts[0].text;
-          aiStatus.innerText = "Đã phân tích";
-          aiStatus.className = "text-xs px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-extrabold";
-          aiContent.innerHTML = text.replace(/\n/g, "<br>").replace(/\*\*(.*?)\*\*/g, "<strong class='text-slate-900 font-black'>$1</strong>");
-        } else {
-          throw new Error("Không nhận được nội dung phản hồi từ AI");
-        }
-      } catch (err) {
-        aiStatus.innerText = "Lỗi kết nối";
-        aiStatus.className = "text-xs px-3.5 py-1 rounded-full bg-red-50 text-[#8c0000] border border-red-200 font-extrabold";
-        aiContent.innerText = "Không thể lấy nhận xét từ AI: " + err.message;
+      // 2. Tốc độ & Vitals
+      if (mobSpeed < 70) {
+        issues.push(`Tốc độ di động đạt ${mobSpeed}/100 (chưa đạt mốc tối thiểu 70)`);
+        actions.push("Nén tối ưu lại toàn bộ ảnh banner trang chủ sang chuẩn WebP");
       }
+      if (lcp > 2.5) {
+        issues.push(`Chỉ số LCP chậm (${lcp}s, ngưỡng chuẩn < 2.5s) làm giảm tỷ lệ giữ chân khách`);
+        actions.push("Tải trước (Preload) hình ảnh banner đầu trang");
+      }
+      if (cls > 0.1) {
+        issues.push(`Bố cục trang bị xê dịch khi tải (CLS: ${cls}, chuẩn < 0.1)`);
+        actions.push("Đặt kích thước width/height cố định cho tất cả hình ảnh trên website");
+      }
+
+      // 3. Liên kết & Media
+      if (brokenLinks > 0 || mediaErrors > 0 || redirectChains > 0) {
+        issues.push(`Phát hiện ${brokenLinks} link 404, ${mediaErrors} ảnh hỏng và ${redirectChains} vòng lặp chuyển hướng`);
+        actions.push("Dọn dẹp các đường dẫn bị xóa hoặc thay đổi trên menu");
+      }
+
+      // 4. SEO Kỹ thuật
+      if (sitemap !== 'OK' || robots !== 'OK' || indexErrors > 0) {
+        issues.push(`Vấn đề SEO: Sitemap (${sitemap}), Robots (${robots}), ${indexErrors} trang lỗi index Google`);
+        actions.push("Kiểm tra lại sơ đồ trang web và khai báo lại các URL bị từ chối trên Search Console");
+      }
+
+      // 5. Kênh chuyển đổi (Lead)
+      if (formTest !== 'pass' || callTest !== 'pass' || chatTest !== 'pass') {
+        const failedArr = [];
+        if (formTest !== 'pass') failedArr.push("Form Báo giá");
+        if (callTest !== 'pass') failedArr.push("Nút Gọi điện");
+        if (chatTest !== 'pass') failedArr.push("Widget Chat");
+        issues.push(`Tính năng chuyển đổi bị lỗi: ${failedArr.join(', ')} không nhận dữ liệu`);
+        actions.push(`Khắc phục ngay ${failedArr.join(', ')} để không làm mất dữ liệu khách hàng`);
+      }
+
+      // 6. Sao lưu & Bảo mật
+      if (backup !== 'pass' || security !== 'pass') {
+        issues.push("Chưa tạo bản sao lưu hosting định kỳ hoặc có nguy cơ bảo mật");
+        actions.push("Tạo bản backup đầy đủ cho mã nguồn & Database ngay hôm nay");
+      }
+
+      // Đánh giá tổng quát
+      let summary = "";
+      if (issues.length === 0) {
+        summary = "Toàn bộ hệ thống kỹ thuật tuần này vận hành hoàn hảo, mọi chỉ số từ hạ tầng, tốc độ tải trang đến các tính năng nhận khách đều đạt chuẩn cao nhất.";
+        actions.push("Duy trì cấu hình hiện tại và tiếp tục giám sát theo chu kỳ tuần.");
+      } else if (issues.length <= 2) {
+        summary = "Hệ thống vận hành tương đối ổn định, chỉ còn một vài chi tiết nhỏ cần tinh chỉnh để đạt hiệu năng tối ưu.";
+      } else {
+        summary = "Hệ thống đang gặp một số sự cố kỹ thuật ảnh hưởng trực tiếp đến trải nghiệm người dùng và chuyển đổi khách hàng. Cần ưu tiên khắc phục.";
+      }
+
+      aiStatus.innerText = issues.length === 0 ? "Đạt chuẩn 100%" : `Có ${issues.length} cảnh báo`;
+      aiStatus.className = issues.length === 0 
+        ? "text-xs px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-extrabold"
+        : "text-xs px-3.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 font-extrabold";
+
+      aiContent.innerHTML = `
+        <div class="space-y-2">
+          <p><strong class="text-slate-900 font-black">1. Tổng quan vận hành:</strong> ${summary}</p>
+          <p><strong class="text-slate-900 font-black">2. Hạng mục cần xử lý:</strong> ${issues.length > 0 ? issues.join("; ") + "." : "Không có cảnh báo nào, tất cả chỉ số đều an toàn."}</p>
+          <p><strong class="text-slate-900 font-black">3. Hành động kỹ thuật ưu tiên:</strong> ${actions.slice(0, 3).join("; ") + "."}</p>
+        </div>
+      `;
     }
 
     // Đọc chính xác 20 cột (A -> T)
@@ -395,8 +445,8 @@
           tbody.appendChild(tr);
         });
 
-        // Gọi AI chẩn đoán
-        callGeminiReview(latest);
+        // Kích hoạt nhận xét tự động
+        generateAuditReview(latest);
       }
     });
   </script>
