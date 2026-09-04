@@ -18,7 +18,7 @@
   <div class="max-w-7xl mx-auto space-y-6">
 
     <!-- Top Navigation / Header chuẩn phong cách ISUZU -->
-    <header class="bg-[#15181E] border-t-4 border-t-[#E60012] border-x border-b border-zinc-800/80 rounded-2xl p-6 shadow-2xl">
+    <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">Website Health & Technical Audit</h1>
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div class="flex items-center gap-5">
           <!-- Logo ISUZU Vector Chuẩn đỏ-trắng -->
@@ -50,7 +50,7 @@
     </header>
 
     <!-- Khung Nhận xét Phân tích Tự động AI -->
-    <section class="bg-gradient-to-r from-[#1E1719] via-[#16181D] to-[#16181D] border-l-4 border-l-[#E60012] border-y border-r border-zinc-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+    <section class="bg-[#FFFDF7] border-l-4 border-l-[#CC0000] border-y border-r border-amber-200/80 rounded-2xl p-6 shadow-sm">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 rounded-lg bg-red-600/20 flex items-center justify-center border border-red-500/30 text-[#E60012] font-bold text-base">
@@ -72,91 +72,91 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
       <!-- 1. Hạ tầng & Sẵn sàng -->
-      <div class="bg-[#15181E] border border-zinc-800 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition shadow-sm">
+      <div class="bg-[#FFFDF2] border border-amber-200/80 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-300 transition">
         <div>
-          <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-            <span class="text-xs font-bold text-zinc-300 uppercase tracking-wider">1. Hạ tầng & Sẵn sàng</span>
+          <div class="flex items-center justify-between border-b border-amber-200/60 pb-3 mb-4">
+            <span class="text-xs font-bold text-slate-900 font-extrabold uppercase tracking-wider">1. Hạ tầng & Sẵn sàng</span>
             <span id="badge-g1" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Uptime 7 ngày (≥ 99.9%)</span><span id="val-uptime" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Phản hồi TTFB (&lt; 600ms)</span><span id="val-ttfb" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Hạn SSL (&gt; 30 ngày)</span><span id="val-ssl" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Uptime 7 ngày (≥ 99.9%)</span><span id="val-uptime" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Phản hồi TTFB (&lt; 600ms)</span><span id="val-ttfb" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Hạn SSL (&gt; 30 ngày)</span><span id="val-ssl" class="font-bold">--</span></div>
           </div>
         </div>
       </div>
 
       <!-- 2. Tốc độ & Vitals -->
-      <div class="bg-[#15181E] border border-zinc-800 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition shadow-sm">
+     <div class="bg-[#FFFDF2] border border-amber-200/80 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-300 transition">
         <div>
-          <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-            <span class="text-xs font-bold text-zinc-300 uppercase tracking-wider">2. Tốc độ & Vitals</span>
+          <div class="flex items-center justify-between border-b border-amber-200/60 pb-3 mb-4">
+            <span class="text-xs font-bold text-slate-900 font-extrabold uppercase tracking-wider">2. Tốc độ & Vitals</span>
             <span id="badge-g2" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Speed (M ≥ 70 / D ≥ 85)</span><span id="val-speed" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">LCP (&lt; 2.5s)</span><span id="val-lcp" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">INP (&lt; 200ms) / CLS (&lt; 0.1)</span><span id="val-inp-cls" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Speed (M ≥ 70 / D ≥ 85)</span><span id="val-speed" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">LCP (&lt; 2.5s)</span><span id="val-lcp" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">INP (&lt; 200ms) / CLS (&lt; 0.1)</span><span id="val-inp-cls" class="font-bold">--</span></div>
           </div>
         </div>
       </div>
 
       <!-- 3. Liên kết & Lỗi web -->
-      <div class="bg-[#15181E] border border-zinc-800 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition shadow-sm">
+     <div class="bg-[#FFFDF2] border border-amber-200/80 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-300 transition">
         <div>
-          <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-            <span class="text-xs font-bold text-zinc-300 uppercase tracking-wider">3. Liên kết & Lỗi web</span>
+          <div class="flex items-center justify-between border-b border-amber-200/60 pb-3 mb-4">
+            <span class="text-xs font-bold text-slate-900 font-extrabold uppercase tracking-wider">3. Liên kết & Lỗi web</span>
             <span id="badge-g3" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Link 404 nội bộ (= 0)</span><span id="val-404" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Redirect chains (= 0)</span><span id="val-redirect" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Tài nguyên ảnh/media lỗi</span><span class="font-bold text-emerald-400">Đạt</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Link 404 nội bộ (= 0)</span><span id="val-404" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Redirect chains (= 0)</span><span id="val-redirect" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Tài nguyên ảnh/media lỗi</span><span class="font-bold text-emerald-400">Đạt</span></div>
           </div>
         </div>
       </div>
 
       <!-- 4. Kỹ thuật SEO & Index -->
-      <div class="bg-[#15181E] border border-zinc-800 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition shadow-sm">
+     <div class="bg-[#FFFDF2] border border-amber-200/80 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-300 transition">
         <div>
-          <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-            <span class="text-xs font-bold text-zinc-300 uppercase tracking-wider">4. Kỹ thuật SEO & Index</span>
+          <div class="flex items-center justify-between border-b border-amber-200/60 pb-3 mb-4">
+            <span class="text-xs font-bold text-slate-900 font-extrabold uppercase tracking-wider">4. Kỹ thuật SEO & Index</span>
             <span id="badge-g4" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Sitemap XML</span><span id="val-sitemap" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Lỗi Index GSC (= 0)</span><span id="val-index-err" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">File Robots.txt</span><span class="font-bold text-emerald-400">Hợp lệ</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Sitemap XML</span><span id="val-sitemap" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Lỗi Index GSC (= 0)</span><span id="val-index-err" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">File Robots.txt</span><span class="font-bold text-emerald-400">Hợp lệ</span></div>
           </div>
         </div>
       </div>
 
       <!-- 5. Tính năng tương tác -->
-      <div class="bg-[#15181E] border border-zinc-800 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition shadow-sm">
+     <div class="bg-[#FFFDF2] border border-amber-200/80 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-300 transition">
         <div>
-          <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-            <span class="text-xs font-bold text-zinc-300 uppercase tracking-wider">5. Tính năng tương tác</span>
+          <div class="flex items-center justify-between border-b border-amber-200/60 pb-3 mb-4">
+            <span class="text-xs font-bold text-slate-900 font-extrabold uppercase tracking-wider">5. Tính năng tương tác</span>
             <span id="badge-g5" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Test Form Lead/Báo giá</span><span id="val-form" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Nút Click-to-Call</span><span class="font-bold text-emerald-400">Hoạt động</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Widget Chat</span><span class="font-bold text-emerald-400">Hoạt động</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Test Form Lead/Báo giá</span><span id="val-form" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Nút Click-to-Call</span><span class="font-bold text-emerald-600">Hoạt động</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Widget Chat</span><span class="font-bold text-emerald-600">Hoạt động</span></div>
           </div>
         </div>
       </div>
 
       <!-- 6. Sao lưu & Bảo mật -->
-      <div class="bg-[#15181E] border border-zinc-800 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition shadow-sm">
+     <div class="bg-[#FFFDF2] border border-amber-200/80 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-300 transition">
         <div>
-          <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-            <span class="text-xs font-bold text-zinc-300 uppercase tracking-wider">6. Sao lưu & Bảo mật</span>
+          <div class="flex items-center justify-between border-b border-amber-200/60 pb-3 mb-4">
+            <span class="text-xs font-bold text-slate-900 font-extrabold uppercase tracking-wider">6. Sao lưu & Bảo mật</span>
             <span id="badge-g6" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Bản Backup hàng tuần</span><span id="val-backup" class="font-bold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Quét mã độc</span><span class="font-bold text-emerald-400">Sạch sẽ</span></div>
-            <div class="flex justify-between items-center"><span class="text-zinc-400">Hạ tầng PHP/CMS</span><span class="font-bold text-zinc-300">Tối ưu</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Bản Backup hàng tuần</span><span id="val-backup" class="font-bold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Quét mã độc</span><span class="font-bold text-emerald-600">Sạch sẽ</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-medium">Hạ tầng PHP/CMS</span><span class="font-bold text-emerald-600">Tối ưu</span></div>
           </div>
         </div>
       </div>
@@ -164,14 +164,14 @@
     </div>
 
     <!-- Bảng nhật ký lịch sử các tuần -->
-    <div class="bg-[#15181E] border border-zinc-800 rounded-2xl overflow-hidden mt-8 shadow-md">
+    <div class="bg-[#FFFDF5] border border-amber-200/80 rounded-2xl overflow-hidden mt-8 shadow-md">
       <div class="px-6 py-4 border-b border-zinc-800 flex justify-between items-center bg-[#1A1E24]">
-        <h2 class="text-base font-bold text-white uppercase tracking-wide">Nhật ký kiểm tra các tuần trước</h2>
+        <h2 class="text-base font-bold text-slate-900 uppercase tracking-wide">Nhật ký kiểm tra các tuần trước</h2>
         <span class="text-xs text-zinc-400">Lưu trữ từ Google Sheets</span>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-left text-sm text-zinc-300">
-          <thead class="bg-[#111317] text-[11px] uppercase tracking-wider text-zinc-400 border-b border-zinc-800">
+          <thead class="bg-amber-100/50 text-slate-700 border-amber-200 text-[11px] uppercase tracking-wider text-zinc-400 border-b border-zinc-800">
             <tr>
               <th class="px-5 py-3.5">Tuần</th>
               <th class="px-4 py-3.5">Uptime</th>
@@ -184,7 +184,7 @@
               <th class="px-4 py-3.5">Backup</th>
             </tr>
           </thead>
-          <tbody id="history-rows" class="divide-y divide-zinc-800/80 font-medium">
+          <tbody id="history-rows" class="divide-y divide-amber-100/80 font-medium">
             <tr><td colspan="9" class="px-5 py-6 text-center text-zinc-500">Đang đồng bộ dữ liệu...</td></tr>
           </tbody>
         </table>
@@ -198,22 +198,24 @@
     const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBoBn607oWc00FQHep0KFlICTpD0Pxz6EH4YxyRTI8-jUWDC_3xJfUkP-fHnjEvEoAYOLVquBoG_0-/pub?gid=0&single=true&output=csv";
     const GEMINI_API_KEY = "AQ.Ab8RN6J_qSwmEDx8EfgpNkSp848Krq1CGq9QKhk959Exx1yj3w";
 
-    function setBadge(elementId, isPass) {
-      const el = document.getElementById(elementId);
-      if (isPass) {
-        el.className = "text-xs px-2.5 py-0.5 rounded font-bold tracking-wide bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
-        el.innerText = "ĐẠT CHUẨN";
-      } else {
-        el.className = "text-xs px-2.5 py-0.5 rounded font-bold tracking-wide bg-red-600/15 text-[#E60012] border border-red-600/30";
-        el.innerText = "CẦN XỬ LÝ";
-      }
-    }
+function setBadge(elementId, isPass) {
+  const el = document.getElementById(elementId);
+  if (isPass) {
+    el.className = "text-xs px-2.5 py-0.5 rounded font-bold bg-emerald-100 text-emerald-700 border border-emerald-300";
+    el.innerText = "ĐẠT CHUẨN";
+  } else {
+    el.className = "text-xs px-2.5 py-0.5 rounded font-bold bg-red-100 text-[#CC0000] border border-red-300";
+    el.innerText = "CẦN XỬ LÝ";
+  }
+}
 
-    function formatVal(elementId, value, isPass, suffix = "") {
-      const el = document.getElementById(elementId);
-      el.innerText = (value !== undefined && value !== "") ? (value + suffix) : "--";
-      el.className = isPass ? "font-bold text-emerald-400" : "font-bold text-[#E60012]";
-    }
+function formatVal(elementId, value, isPass, suffix = "") {
+  const el = document.getElementById(elementId);
+  const hasValue = value !== undefined && value !== null && value.toString().trim() !== "";
+  el.innerText = hasValue ? (value + suffix) : "--";
+  // Đạt dùng màu xanh lá đậm (emerald-700), Chưa đạt dùng màu đỏ ISUZU (#CC0000)
+  el.className = isPass ? "font-bold text-emerald-700" : "font-bold text-[#CC0000]";
+}
 
     async function callGeminiReview(data) {
       const aiStatus = document.getElementById('ai-status');
