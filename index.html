@@ -18,7 +18,7 @@
     <header class="bg-white border-t-4 border-t-[#8c0000] border-x border-b border-slate-200/80 rounded-2xl p-6 shadow-md">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div class="flex items-center gap-6">
-          <!-- Khung Logo phóng to hơn -->
+          <!-- Khung Logo -->
           <div class="h-20 px-4 bg-white rounded-2xl flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0">
             <img id="site-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYyJ5iX0-1fGJwFekfO0b_CuTjVe2jHVsSVCqyRp0pJIwSqfyer964qAL&s=10" alt="Logo ISUZU" class="h-12 w-auto object-contain">
           </div>
@@ -63,7 +63,7 @@
       </div>
     </section>
 
-    <!-- LƯỚI 6 NHÓM KỸ THUẬT (Tone Trắng / Bạc Hiện Đại) -->
+    <!-- LƯỚI 6 NHÓM KỸ THUẬT -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- 1. Hạ tầng & Sẵn sàng -->
@@ -238,7 +238,6 @@
         `3. Gợi ý hành động kỹ thuật cần làm trong tuần tiếp theo.`;
 
       try {
-        // Đổi endpoint và truyền key qua Header x-goog-api-key để hỗ trợ chuẩn key AQ...
         const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent", {
           method: "POST",
           headers: {
@@ -252,7 +251,6 @@
 
         const resData = await response.json();
 
-        // Nếu Google báo lỗi chi tiết, hiển thị trực tiếp để dễ kiểm tra
         if (resData.error) {
           throw new Error(resData.error.message || JSON.stringify(resData.error));
         }
@@ -266,10 +264,6 @@
           throw new Error("Không nhận được nội dung phản hồi từ AI");
         }
       } catch (err) {
-        aiStatus.innerText = "Lỗi kết nối";
-        aiStatus.className = "text-xs px-3.5 py-1 rounded-full bg-red-50 text-[#8c0000] border border-red-200 font-extrabold";
-        aiContent.innerText = "Không thể lấy nhận xét từ AI: " + err.message;
-      } (err) {
         aiStatus.innerText = "Lỗi kết nối";
         aiStatus.className = "text-xs px-3.5 py-1 rounded-full bg-red-50 text-[#8c0000] border border-red-200 font-extrabold";
         aiContent.innerText = "Không thể lấy nhận xét từ AI: " + err.message;
