@@ -9,151 +9,148 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .isuzu-red { color: #8c0000; }
-    .bg-isuzu-red { background-color: #8c0000; }
-    .border-isuzu-red { border-color: #8c0000; }
   </style>
 </head>
-<body class="bg-[#F6F7FA] text-slate-900 min-h-screen p-4 md:p-8">
+<body class="bg-[#F1F3F7] text-slate-900 min-h-screen p-4 md:p-8 selection:bg-[#8c0000] selection:text-white">
   <div class="max-w-7xl mx-auto space-y-6">
 
     <!-- Top Navigation / Header -->
-    <header class="bg-[#FFFDF5] border-t-4 border-t-[#8c0000] border-x border-b border-amber-200/80 rounded-2xl p-6 shadow-sm">
+    <header class="bg-white border-t-4 border-t-[#8c0000] border-x border-b border-slate-200/80 rounded-2xl p-6 shadow-md">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div class="flex items-center gap-5">
-          <!-- Logo ảnh chuẩn -->
-          <div class="h-14 px-3 py-1 bg-white rounded-xl flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0">
-            <img id="site-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYyJ5iX0-1fGJwFekfO0b_CuTjVe2jHVsSVCqyRp0pJIwSqfyer964qAL&s=10" alt="Logo ISUZU" class="h-8 w-auto object-contain">
+        <div class="flex items-center gap-6">
+          <!-- Khung Logo phóng to hơn -->
+          <div class="h-20 px-4 bg-white rounded-2xl flex items-center justify-center border border-slate-200 shadow-sm flex-shrink-0">
+            <img id="site-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYyJ5iX0-1fGJwFekfO0b_CuTjVe2jHVsSVCqyRp0pJIwSqfyer964qAL&s=10" alt="Logo ISUZU" class="h-12 w-auto object-contain">
           </div>
 
           <div>
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="px-2.5 py-0.5 rounded text-[11px] font-bold tracking-wider uppercase bg-[#8c0000] text-white border border-red-800">
-                Hệ thống Quản trị Chất lượng Kỹ thuật
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-3 py-0.5 rounded-full text-xs font-black tracking-wider uppercase bg-[#8c0000] text-white shadow-sm">
+                Hệ thống Quản trị Kỹ thuật Định kỳ
               </span>
             </div>
-            <h1 class="text-2xl md:text-3xl font-extrabold text-[#8c0000] tracking-tight">ITB - Website Health & Technical Audit</h1>
-            <p class="text-xs md:text-sm text-slate-600 font-medium mt-0.5">Giám sát ổn định Kỹ thuật & Đánh giá hiệu suất định kỳ</p>
+            <h1 class="text-2xl md:text-4xl font-black text-slate-900 tracking-tight">ITB - Website Health & Technical Audit</h1>
+            <p class="text-sm md:text-base text-slate-500 font-medium mt-1">Giám sát 6 trụ cột kỹ thuật & Đánh giá hiệu suất định kỳ tự động</p>
           </div>
         </div>
 
-        <div class="bg-[#8c0000] border border-red-700 px-5 py-3 rounded-xl flex items-center gap-3 shadow-md self-stretch md:self-auto justify-between md:justify-start">
-          <div class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></div>
+        <div class="bg-[#8c0000] px-6 py-3.5 rounded-2xl flex items-center gap-4 shadow-lg self-stretch md:self-auto justify-between md:justify-start">
+          <div class="w-3 h-3 rounded-full bg-white animate-ping"></div>
           <div>
-            <div class="text-[10px] text-red-100 uppercase tracking-wider font-bold">Tuần kiểm tra</div>
-            <div id="latest-date" class="text-base font-extrabold text-white tracking-wide">Đang nạp dữ liệu...</div>
+            <div class="text-xs text-red-100 uppercase tracking-widest font-bold">Tuần kiểm tra</div>
+            <div id="latest-date" class="text-lg font-black text-white tracking-wide">Đang nạp...</div>
           </div>
         </div>
       </div>
     </header>
 
     <!-- Khung Nhận xét Phân tích Tự động AI -->
-    <section class="bg-[#FFFDF5] border-l-4 border-l-[#8c0000] border-y border-r border-amber-200/90 rounded-2xl p-6 shadow-sm">
-      <div class="flex items-center justify-between mb-3 border-b border-amber-200/60 pb-3">
+    <section class="bg-white border-l-4 border-l-[#8c0000] border-y border-r border-slate-200 rounded-2xl p-6 shadow-sm">
+      <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center border border-red-200 text-[#8c0000] font-bold text-base">
+          <div class="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center border border-red-100 text-[#8c0000] font-black text-lg shadow-sm">
             ✦
           </div>
           <div>
-            <h2 class="text-base font-extrabold text-slate-900 uppercase tracking-wide">Chuyên gia AI Đánh giá Kỹ thuật</h2>
-            <p class="text-xs text-slate-600 font-medium">Tự động chẩn đoán số liệu tuần và khuyến nghị giải pháp khắc phục</p>
+            <h2 class="text-lg font-extrabold text-slate-900 uppercase tracking-wide">Chuyên gia AI Đánh giá Kỹ thuật</h2>
+            <p class="text-xs md:text-sm text-slate-500 font-medium">Tự động đọc 20 chỉ số kỹ thuật và khuyến nghị giải pháp khắc phục</p>
           </div>
         </div>
-        <span id="ai-status" class="text-xs px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-bold">Đang tải...</span>
+        <span id="ai-status" class="text-xs px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-bold">Đang tải...</span>
       </div>
-      <div id="ai-review-content" class="text-sm text-slate-800 leading-relaxed space-y-2 pt-1 font-normal">
+      <div id="ai-review-content" class="text-sm md:text-base text-slate-700 leading-relaxed space-y-2 pt-1">
         Đang đồng bộ dữ liệu từ Google Sheets để phân tích...
       </div>
     </section>
 
-    <!-- LƯỚI 6 NHÓM KỸ THUẬT (Tone Vàng Kem Sáng) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <!-- LƯỚI 6 NHÓM KỸ THUẬT (Tone Trắng / Bạc Hiện Đại) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- 1. Hạ tầng & Sẵn sàng -->
-      <div class="bg-[#FFFDF2] border border-amber-200/90 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-400 transition">
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
         <div>
-          <div class="flex items-center justify-between border-b border-amber-200/70 pb-3 mb-4">
-            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">1. Hạ tầng & Sẵn sàng</span>
-            <span id="badge-g1" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+            <span class="text-base font-black text-slate-900 uppercase tracking-wide">1. Hạ tầng & Sẵn sàng</span>
+            <span id="badge-g1" class="text-xs px-3 py-1 rounded-full font-extrabold tracking-wide">--</span>
           </div>
-          <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Uptime 7 ngày (≥ 99.9%)</span><span id="val-uptime" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Phản hồi TTFB (&lt; 600ms)</span><span id="val-ttfb" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Hạn SSL (&gt; 30 ngày)</span><span id="val-ssl" class="font-extrabold">--</span></div>
+          <div class="space-y-4 text-[15px]">
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Uptime 7 ngày (≥ 99.9%)</span><span id="val-uptime" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Phản hồi TTFB (&lt; 600ms)</span><span id="val-ttfb" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Hạn SSL (&gt; 30 ngày)</span><span id="val-ssl" class="font-black text-base">--</span></div>
           </div>
         </div>
       </div>
 
       <!-- 2. Tốc độ & Vitals -->
-      <div class="bg-[#FFFDF2] border border-amber-200/90 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-400 transition">
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
         <div>
-          <div class="flex items-center justify-between border-b border-amber-200/70 pb-3 mb-4">
-            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">2. Tốc độ & Vitals</span>
-            <span id="badge-g2" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+            <span class="text-base font-black text-slate-900 uppercase tracking-wide">2. Tốc độ & Vitals</span>
+            <span id="badge-g2" class="text-xs px-3 py-1 rounded-full font-extrabold tracking-wide">--</span>
           </div>
-          <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Speed (M ≥ 70 / D ≥ 85)</span><span id="val-speed" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">LCP (&lt; 2.5s)</span><span id="val-lcp" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">INP (&lt; 200ms) / CLS (&lt; 0.1)</span><span id="val-inp-cls" class="font-extrabold">--</span></div>
+          <div class="space-y-4 text-[15px]">
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Speed (M ≥ 70 / D ≥ 85)</span><span id="val-speed" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">LCP (&lt; 2.5s)</span><span id="val-lcp" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">INP (&lt; 200ms) / CLS (&lt; 0.1)</span><span id="val-inp-cls" class="font-black text-base">--</span></div>
           </div>
         </div>
       </div>
 
-      <!-- 3. Liên kết & Lỗi web -->
-      <div class="bg-[#FFFDF2] border border-amber-200/90 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-400 transition">
+      <!-- 3. Liên kết & Media -->
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
         <div>
-          <div class="flex items-center justify-between border-b border-amber-200/70 pb-3 mb-4">
-            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">3. Liên kết & Media</span>
-            <span id="badge-g3" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+            <span class="text-base font-black text-slate-900 uppercase tracking-wide">3. Liên kết & Media</span>
+            <span id="badge-g3" class="text-xs px-3 py-1 rounded-full font-extrabold tracking-wide">--</span>
           </div>
-          <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Link 404 nội bộ (= 0)</span><span id="val-404" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Redirect chains (= 0)</span><span id="val-redirect" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Tài nguyên media lỗi (= 0)</span><span id="val-media" class="font-extrabold">--</span></div>
+          <div class="space-y-4 text-[15px]">
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Link 404 nội bộ (= 0)</span><span id="val-404" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Redirect chains (= 0)</span><span id="val-redirect" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Tài nguyên media lỗi (= 0)</span><span id="val-media" class="font-black text-base">--</span></div>
           </div>
         </div>
       </div>
 
       <!-- 4. Kỹ thuật SEO & Index -->
-      <div class="bg-[#FFFDF2] border border-amber-200/90 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-400 transition">
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
         <div>
-          <div class="flex items-center justify-between border-b border-amber-200/70 pb-3 mb-4">
-            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">4. Kỹ thuật SEO & Index</span>
-            <span id="badge-g4" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+            <span class="text-base font-black text-slate-900 uppercase tracking-wide">4. Kỹ thuật SEO & Index</span>
+            <span id="badge-g4" class="text-xs px-3 py-1 rounded-full font-extrabold tracking-wide">--</span>
           </div>
-          <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Sitemap XML</span><span id="val-sitemap" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Lỗi Index GSC (= 0)</span><span id="val-index-err" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">File Robots.txt</span><span id="val-robots" class="font-extrabold">--</span></div>
+          <div class="space-y-4 text-[15px]">
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Sitemap XML</span><span id="val-sitemap" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Lỗi Index GSC (= 0)</span><span id="val-index-err" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">File Robots.txt</span><span id="val-robots" class="font-black text-base">--</span></div>
           </div>
         </div>
       </div>
 
       <!-- 5. Tính năng tương tác -->
-      <div class="bg-[#FFFDF2] border border-amber-200/90 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-400 transition">
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
         <div>
-          <div class="flex items-center justify-between border-b border-amber-200/70 pb-3 mb-4">
-            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">5. Tính năng tương tác</span>
-            <span id="badge-g5" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+            <span class="text-base font-black text-slate-900 uppercase tracking-wide">5. Tính năng tương tác</span>
+            <span id="badge-g5" class="text-xs px-3 py-1 rounded-full font-extrabold tracking-wide">--</span>
           </div>
-          <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Test Form Báo giá</span><span id="val-form" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Nút Click-to-Call</span><span id="val-call" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Widget Chat</span><span id="val-chat" class="font-extrabold">--</span></div>
+          <div class="space-y-4 text-[15px]">
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Test Form Báo giá</span><span id="val-form" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Nút Click-to-Call</span><span id="val-call" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Widget Chat (Zalo/Mess)</span><span id="val-chat" class="font-black text-base">--</span></div>
           </div>
         </div>
       </div>
 
       <!-- 6. Sao lưu & Bảo mật -->
-      <div class="bg-[#FFFDF2] border border-amber-200/90 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-400 transition">
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
         <div>
-          <div class="flex items-center justify-between border-b border-amber-200/70 pb-3 mb-4">
-            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">6. Sao lưu & Bảo mật</span>
-            <span id="badge-g6" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+            <span class="text-base font-black text-slate-900 uppercase tracking-wide">6. Sao lưu & Bảo mật</span>
+            <span id="badge-g6" class="text-xs px-3 py-1 rounded-full font-extrabold tracking-wide">--</span>
           </div>
-          <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Bản Backup hàng tuần</span><span id="val-backup" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Quét mã độc bảo mật</span><span id="val-security" class="font-extrabold">--</span></div>
+          <div class="space-y-4 text-[15px]">
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Bản Backup hàng tuần</span><span id="val-backup" class="font-black text-base">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-600 font-semibold">Quét mã độc bảo mật</span><span id="val-security" class="font-black text-base">--</span></div>
           </div>
         </div>
       </div>
@@ -161,29 +158,29 @@
     </div>
 
     <!-- Bảng nhật ký lịch sử các tuần -->
-    <div class="bg-[#FFFDF5] border border-amber-200/90 rounded-2xl overflow-hidden shadow-md">
-      <div class="px-6 py-4 border-b border-amber-300 flex justify-between items-center bg-[#8c0000]">
-        <h2 class="text-base font-bold text-white uppercase tracking-wide">Nhật ký kiểm tra các tuần trước</h2>
-        <span class="text-xs text-amber-100 font-medium">Lưu trữ từ Google Sheets</span>
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+      <div class="px-6 py-4.5 border-b border-slate-200 flex justify-between items-center bg-[#8c0000]">
+        <h2 class="text-base md:text-lg font-black text-white uppercase tracking-wider">Nhật ký kiểm tra các tuần trước</h2>
+        <span class="text-xs text-red-100 font-medium">Lưu trữ từ Google Sheets</span>
       </div>
       <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm text-slate-800">
-          <thead class="bg-amber-100/80 text-[11px] uppercase tracking-wider text-slate-900 font-extrabold border-b border-amber-300">
+        <table class="w-full text-left text-sm text-slate-700">
+          <thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-700 font-black border-b border-slate-200">
             <tr>
-              <th class="px-4 py-3.5">Tuần</th>
-              <th class="px-3 py-3.5">Uptime</th>
-              <th class="px-3 py-3.5">TTFB</th>
-              <th class="px-3 py-3.5">Speed (M/D)</th>
-              <th class="px-3 py-3.5">LCP / CLS</th>
-              <th class="px-3 py-3.5">404 / Media</th>
-              <th class="px-3 py-3.5">Sitemap / Index</th>
-              <th class="px-3 py-3.5">Robots</th>
-              <th class="px-3 py-3.5">Form / Call / Chat</th>
-              <th class="px-3 py-3.5">Backup / Bảo mật</th>
+              <th class="px-5 py-4">Tuần</th>
+              <th class="px-4 py-4">Uptime</th>
+              <th class="px-4 py-4">TTFB</th>
+              <th class="px-4 py-4">Speed (M/D)</th>
+              <th class="px-4 py-4">LCP / CLS</th>
+              <th class="px-4 py-4">404 / Media</th>
+              <th class="px-4 py-4">Sitemap / Index</th>
+              <th class="px-4 py-4">Robots</th>
+              <th class="px-4 py-4">Form / Call / Chat</th>
+              <th class="px-4 py-4">Backup / Bảo mật</th>
             </tr>
           </thead>
-          <tbody id="history-rows" class="divide-y divide-amber-200/60 font-medium">
-            <tr><td colspan="10" class="px-5 py-6 text-center text-slate-500">Đang đồng bộ dữ liệu...</td></tr>
+          <tbody id="history-rows" class="divide-y divide-slate-100 font-semibold">
+            <tr><td colspan="10" class="px-5 py-8 text-center text-slate-400">Đang đồng bộ dữ liệu...</td></tr>
           </tbody>
         </table>
       </div>
@@ -199,10 +196,10 @@
     function setBadge(elementId, isPass) {
       const el = document.getElementById(elementId);
       if (isPass) {
-        el.className = "text-xs px-2.5 py-0.5 rounded font-bold bg-emerald-100 text-emerald-800 border border-emerald-300";
+        el.className = "text-xs px-3 py-1 rounded-full font-black bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-xs";
         el.innerText = "ĐẠT CHUẨN";
       } else {
-        el.className = "text-xs px-2.5 py-0.5 rounded font-bold bg-red-100 text-[#8c0000] border border-red-300";
+        el.className = "text-xs px-3 py-1 rounded-full font-black bg-red-50 text-[#8c0000] border border-red-200 shadow-xs";
         el.innerText = "CẦN XỬ LÝ";
       }
     }
@@ -211,7 +208,7 @@
       const el = document.getElementById(elementId);
       const hasValue = value !== undefined && value !== null && value.toString().trim() !== "";
       el.innerText = hasValue ? (value + suffix) : "--";
-      el.className = isPass ? "font-extrabold text-emerald-700" : "font-extrabold text-[#8c0000]";
+      el.className = isPass ? "font-black text-emerald-600 text-base" : "font-black text-[#8c0000] text-base";
     }
 
     async function callGeminiReview(data) {
@@ -251,14 +248,14 @@
         if (resData.candidates && resData.candidates.length > 0) {
           const text = resData.candidates[0].content.parts[0].text;
           aiStatus.innerText = "Đã phân tích";
-          aiStatus.className = "text-xs px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold";
-          aiContent.innerHTML = text.replace(/\n/g, "<br>").replace(/\*\*(.*?)\*\*/g, "<strong class='text-slate-900 font-bold'>$1</strong>");
+          aiStatus.className = "text-xs px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-extrabold";
+          aiContent.innerHTML = text.replace(/\n/g, "<br>").replace(/\*\*(.*?)\*\*/g, "<strong class='text-slate-900 font-black'>$1</strong>");
         } else {
           throw new Error("Không nhận được nội dung phản hồi từ AI");
         }
       } catch (err) {
         aiStatus.innerText = "Lỗi kết nối";
-        aiStatus.className = "text-xs px-3 py-1 rounded-full bg-red-100 text-[#8c0000] border border-red-300 font-bold";
+        aiStatus.className = "text-xs px-3.5 py-1 rounded-full bg-red-50 text-[#8c0000] border border-red-200 font-extrabold";
         aiContent.innerText = "Không thể lấy nhận xét từ AI: " + err.message;
       }
     }
@@ -375,21 +372,21 @@
           const isSecOk = row.Backup_Status.toLowerCase() === 'pass' && row.Security_Scan.toLowerCase() === 'pass';
 
           tr.innerHTML = `
-            <td class="px-4 py-3.5 font-bold text-slate-900">${row.Week_Date}</td>
-            <td class="px-3 py-3.5 ${isUptimeOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Uptime ? row.Uptime + '%' : '--'}</td>
-            <td class="px-3 py-3.5">${row.TTFB ? row.TTFB + 'ms' : '--'}</td>
-            <td class="px-3 py-3.5">${row.Mobile_Speed || '--'} / ${row.Desktop_Speed || '--'}</td>
-            <td class="px-3 py-3.5">${row.LCP ? row.LCP + 's' : '--'} / ${row.CLS || '--'}</td>
-            <td class="px-3 py-3.5 ${is404Ok ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Broken_Links || '0'} / ${row.Media_Errors || '0'}</td>
-            <td class="px-3 py-3.5">${row.Sitemap_Status || '--'} (${row.Index_Errors || '0'} lỗi)</td>
-            <td class="px-3 py-3.5">${row.Robots_Status || '--'}</td>
-            <td class="px-3 py-3.5 ${isInteractOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Form_Lead_Test}/${row.Call_Test}/${row.Chat_Test}</td>
-            <td class="px-3 py-3.5 ${isSecOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Backup_Status}/${row.Security_Scan}</td>
+            <td class="px-5 py-4 font-black text-slate-900">${row.Week_Date}</td>
+            <td class="px-4 py-4 ${isUptimeOk ? 'text-emerald-600 font-black' : 'text-[#8c0000] font-black'}">${row.Uptime ? row.Uptime + '%' : '--'}</td>
+            <td class="px-4 py-4 font-semibold">${row.TTFB ? row.TTFB + 'ms' : '--'}</td>
+            <td class="px-4 py-4 font-semibold">${row.Mobile_Speed || '--'} / ${row.Desktop_Speed || '--'}</td>
+            <td class="px-4 py-4 font-semibold">${row.LCP ? row.LCP + 's' : '--'} / ${row.CLS || '--'}</td>
+            <td class="px-4 py-4 ${is404Ok ? 'text-emerald-600 font-semibold' : 'text-[#8c0000] font-black'}">${row.Broken_Links || '0'} / ${row.Media_Errors || '0'}</td>
+            <td class="px-4 py-4 font-semibold">${row.Sitemap_Status || '--'} (${row.Index_Errors || '0'} lỗi)</td>
+            <td class="px-4 py-4 font-semibold">${row.Robots_Status || '--'}</td>
+            <td class="px-4 py-4 ${isInteractOk ? 'text-emerald-600 font-semibold' : 'text-[#8c0000] font-black'}">${row.Form_Lead_Test}/${row.Call_Test}/${row.Chat_Test}</td>
+            <td class="px-4 py-4 ${isSecOk ? 'text-emerald-600 font-semibold' : 'text-[#8c0000] font-black'}">${row.Backup_Status}/${row.Security_Scan}</td>
           `;
           tbody.appendChild(tr);
         });
 
-        // Kích hoạt AI nhận xét toàn diện 20 chỉ số
+        // Gọi AI chẩn đoán
         callGeminiReview(latest);
       }
     });
