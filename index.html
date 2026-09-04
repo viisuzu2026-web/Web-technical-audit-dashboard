@@ -38,12 +38,13 @@
         </div>
 
         <div class="bg-[#8c0000] border border-red-700 px-5 py-3 rounded-xl flex items-center gap-3 shadow-md self-stretch md:self-auto justify-between md:justify-start">
-  <div class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></div>
-  <div>
-    <div class="text-[10px] text-red-100 uppercase tracking-wider font-bold">Tuần kiểm tra</div>
-    <div id="latest-date" class="text-base font-extrabold text-white tracking-wide">Đang nạp dữ liệu...</div>
-  </div>
-</div>
+          <div class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></div>
+          <div>
+            <div class="text-[10px] text-red-100 uppercase tracking-wider font-bold">Tuần kiểm tra</div>
+            <div id="latest-date" class="text-base font-extrabold text-white tracking-wide">Đang nạp dữ liệu...</div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <!-- Khung Nhận xét Phân tích Tự động AI -->
@@ -102,13 +103,13 @@
       <div class="bg-[#FFFDF2] border border-amber-200/90 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-400 transition">
         <div>
           <div class="flex items-center justify-between border-b border-amber-200/70 pb-3 mb-4">
-            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">3. Liên kết & Lỗi web</span>
+            <span class="text-xs font-black text-slate-900 uppercase tracking-wider">3. Liên kết & Media</span>
             <span id="badge-g3" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
             <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Link 404 nội bộ (= 0)</span><span id="val-404" class="font-extrabold">--</span></div>
             <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Redirect chains (= 0)</span><span id="val-redirect" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Tài nguyên ảnh/media lỗi</span><span class="font-bold text-emerald-700">Đạt</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Tài nguyên media lỗi (= 0)</span><span id="val-media" class="font-extrabold">--</span></div>
           </div>
         </div>
       </div>
@@ -123,7 +124,7 @@
           <div class="space-y-3.5 text-sm">
             <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Sitemap XML</span><span id="val-sitemap" class="font-extrabold">--</span></div>
             <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Lỗi Index GSC (= 0)</span><span id="val-index-err" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">File Robots.txt</span><span class="font-bold text-emerald-700">Hợp lệ</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">File Robots.txt</span><span id="val-robots" class="font-extrabold">--</span></div>
           </div>
         </div>
       </div>
@@ -136,9 +137,9 @@
             <span id="badge-g5" class="text-xs px-2.5 py-0.5 rounded font-bold tracking-wide">--</span>
           </div>
           <div class="space-y-3.5 text-sm">
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Test Form Lead/Báo giá</span><span id="val-form" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Nút Click-to-Call</span><span class="font-bold text-emerald-700">Hoạt động</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Widget Chat</span><span class="font-bold text-emerald-700">Hoạt động</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Test Form Báo giá</span><span id="val-form" class="font-extrabold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Nút Click-to-Call</span><span id="val-call" class="font-extrabold">--</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Widget Chat</span><span id="val-chat" class="font-extrabold">--</span></div>
           </div>
         </div>
       </div>
@@ -152,8 +153,7 @@
           </div>
           <div class="space-y-3.5 text-sm">
             <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Bản Backup hàng tuần</span><span id="val-backup" class="font-extrabold">--</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Quét mã độc</span><span class="font-bold text-emerald-700">Sạch sẽ</span></div>
-            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Hạ tầng PHP/CMS</span><span class="font-bold text-emerald-700">Tối ưu</span></div>
+            <div class="flex justify-between items-center"><span class="text-slate-700 font-medium">Quét mã độc bảo mật</span><span id="val-security" class="font-extrabold">--</span></div>
           </div>
         </div>
       </div>
@@ -170,19 +170,20 @@
         <table class="w-full text-left text-sm text-slate-800">
           <thead class="bg-amber-100/80 text-[11px] uppercase tracking-wider text-slate-900 font-extrabold border-b border-amber-300">
             <tr>
-              <th class="px-5 py-3.5">Tuần</th>
-              <th class="px-4 py-3.5">Uptime</th>
-              <th class="px-4 py-3.5">TTFB</th>
-              <th class="px-4 py-3.5">Speed (M/D)</th>
-              <th class="px-4 py-3.5">LCP / CLS</th>
-              <th class="px-4 py-3.5">Link 404</th>
-              <th class="px-4 py-3.5">Sitemap/Index</th>
-              <th class="px-4 py-3.5">Form Test</th>
-              <th class="px-4 py-3.5">Backup</th>
+              <th class="px-4 py-3.5">Tuần</th>
+              <th class="px-3 py-3.5">Uptime</th>
+              <th class="px-3 py-3.5">TTFB</th>
+              <th class="px-3 py-3.5">Speed (M/D)</th>
+              <th class="px-3 py-3.5">LCP / CLS</th>
+              <th class="px-3 py-3.5">404 / Media</th>
+              <th class="px-3 py-3.5">Sitemap / Index</th>
+              <th class="px-3 py-3.5">Robots</th>
+              <th class="px-3 py-3.5">Form / Call / Chat</th>
+              <th class="px-3 py-3.5">Backup / Bảo mật</th>
             </tr>
           </thead>
           <tbody id="history-rows" class="divide-y divide-amber-200/60 font-medium">
-            <tr><td colspan="9" class="px-5 py-6 text-center text-slate-500">Đang đồng bộ dữ liệu...</td></tr>
+            <tr><td colspan="10" class="px-5 py-6 text-center text-slate-500">Đang đồng bộ dữ liệu...</td></tr>
           </tbody>
         </table>
       </div>
@@ -223,18 +224,17 @@
         return;
       }
 
-      const prompt = `Bạn là một chuyên gia kỹ thuật web và bảo mật hệ thống. Dưới đây là chỉ số kiểm tra kỹ thuật định kỳ tuần này của website:\n` +
+      const prompt = `Bạn là một chuyên gia kỹ thuật web và bảo mật hệ thống. Dưới đây là bảng số liệu kiểm tra kỹ thuật định kỳ tuần này của website:\n` +
         `- Ngày kiểm tra: ${data.Week_Date}\n` +
         `- Uptime 7 ngày: ${data.Uptime}% (ngưỡng chuẩn >= 99.9%)\n` +
-        `- Phản hồi máy chủ (TTFB): ${data.TTFB}ms (ngưỡng chuẩn < 600ms)\n` +
+        `- Phản hồi TTFB: ${data.TTFB}ms (ngưỡng chuẩn < 600ms)\n` +
         `- Hạn SSL: ${data.SSL_Days} ngày (ngưỡng chuẩn > 30 ngày)\n` +
-        `- Điểm PageSpeed Mobile: ${data.Mobile_Speed}/100 (chuẩn >= 70)\n` +
-        `- Điểm PageSpeed Desktop: ${data.Desktop_Speed}/100 (chuẩn >= 85)\n` +
-        `- LCP: ${data.LCP}s (chuẩn < 2.5s), INP: ${data.INP}ms (chuẩn < 200ms), CLS: ${data.CLS} (chuẩn < 0.1)\n` +
-        `- Link 404 nội bộ: ${data.Broken_Links}, Vòng lặp chuyển hướng: ${data.Redirect_Chains}\n` +
-        `- Sitemap: ${data.Sitemap_Status}, Lỗi lập chỉ mục GSC: ${data.Index_Errors}\n` +
-        `- Gửi test Form nhận khách: ${data.Form_Lead_Test}\n` +
-        `- Tình trạng sao lưu (Backup): ${data.Backup_Status}\n\n` +
+        `- Điểm Speed: Mobile ${data.Mobile_Speed}/100 (chuẩn >= 70), Desktop ${data.Desktop_Speed}/100 (chuẩn >= 85)\n` +
+        `- Core Web Vitals: LCP ${data.LCP}s (chuẩn < 2.5s), INP ${data.INP}ms, CLS ${data.CLS} (chuẩn < 0.1)\n` +
+        `- Lỗi liên kết & tài nguyên: Link 404: ${data.Broken_Links}, Chuỗi Redirect: ${data.Redirect_Chains}, Media hỏng: ${data.Media_Errors}\n` +
+        `- SEO & Index: Sitemap: ${data.Sitemap_Status}, Lỗi Index GSC: ${data.Index_Errors}, File Robots.txt: ${data.Robots_Status}\n` +
+        `- Tính năng tương tác: Test Form: ${data.Form_Lead_Test}, Test Nút Gọi: ${data.Call_Test}, Test Chat: ${data.Chat_Test}\n` +
+        `- Sao lưu & Bảo mật: Backup: ${data.Backup_Status}, Quét mã độc: ${data.Security_Scan}\n\n` +
         `Hãy viết một bản đánh giá chuyên nghiệp bằng tiếng Việt (khoảng 3 - 4 gạch đầu dòng súc tích):\n` +
         `1. Tóm tắt tình trạng vận hành chung tuần này.\n` +
         `2. Nêu rõ các hạng mục chưa đạt (nếu có) và tác động của nó.\n` +
@@ -263,7 +263,7 @@
       }
     }
 
-    // Đọc dữ liệu CSV theo cấu trúc cột A -> O
+    // Đọc chính xác 20 cột (A -> T)
     Papa.parse(CSV_URL, {
       download: true,
       skipEmptyLines: true,
@@ -285,10 +285,15 @@
             CLS: get(8),
             Broken_Links: get(9),
             Redirect_Chains: get(10),
-            Sitemap_Status: get(11),
-            Index_Errors: get(12),
-            Form_Lead_Test: get(13),
-            Backup_Status: get(14)
+            Media_Errors: get(11),
+            Sitemap_Status: get(12),
+            Index_Errors: get(13),
+            Robots_Status: get(14),
+            Form_Lead_Test: get(15),
+            Call_Test: get(16),
+            Chat_Test: get(17),
+            Backup_Status: get(18),
+            Security_Scan: get(19)
           };
         }).filter(r => r.Week_Date !== "");
 
@@ -315,69 +320,76 @@
         const lcpVal = parseFloat(latest.LCP) || 0;
         const inpVal = parseInt(latest.INP) || 0;
         const clsVal = parseFloat(latest.CLS) || 0;
-
         const mobPass = mobVal >= 70;
         const deskPass = deskVal >= 85;
         const lcpPass = lcpVal > 0 && lcpVal <= 2.5;
         const inpPass = inpVal > 0 && inpVal <= 200;
         const clsPass = clsVal >= 0 && clsVal <= 0.1;
-
-        const speedDisplay = (latest.Mobile_Speed || "--") + " / " + (latest.Desktop_Speed || "--");
-        formatVal('val-speed', speedDisplay, mobPass && deskPass);
+        formatVal('val-speed', `${latest.Mobile_Speed || "--"} / ${latest.Desktop_Speed || "--"}`, mobPass && deskPass);
         formatVal('val-lcp', latest.LCP, lcpPass, 's');
-        const inpClsDisplay = (latest.INP ? latest.INP + "ms" : "--") + " / " + (latest.CLS || "--");
-        formatVal('val-inp-cls', inpClsDisplay, inpPass && clsPass);
+        formatVal('val-inp-cls', `${latest.INP ? latest.INP + 'ms' : '--'} / ${latest.CLS || '--'}`, inpPass && clsPass);
         setBadge('badge-g2', mobPass && deskPass && lcpPass && clsPass);
 
-        // 3. Liên kết
+        // 3. Liên kết & Media
         const bPass = latest.Broken_Links !== "" && (parseInt(latest.Broken_Links) || 0) === 0;
         const rPass = latest.Redirect_Chains !== "" && (parseInt(latest.Redirect_Chains) || 0) === 0;
+        const mPass = latest.Media_Errors !== "" && (parseInt(latest.Media_Errors) || 0) === 0;
         formatVal('val-404', latest.Broken_Links, bPass);
         formatVal('val-redirect', latest.Redirect_Chains, rPass);
-        setBadge('badge-g3', bPass && rPass);
+        formatVal('val-media', latest.Media_Errors, mPass);
+        setBadge('badge-g3', bPass && rPass && mPass);
 
-        // 4. SEO
+        // 4. Kỹ thuật SEO
         const sitemapPass = latest.Sitemap_Status.toUpperCase() === 'OK';
         const indexPass = latest.Index_Errors !== "" && (parseInt(latest.Index_Errors) || 0) === 0;
+        const robotsPass = latest.Robots_Status.toUpperCase() === 'OK';
         formatVal('val-sitemap', latest.Sitemap_Status, sitemapPass);
         formatVal('val-index-err', latest.Index_Errors, indexPass);
-        setBadge('badge-g4', sitemapPass && indexPass);
+        formatVal('val-robots', latest.Robots_Status, robotsPass);
+        setBadge('badge-g4', sitemapPass && indexPass && robotsPass);
 
-        // 5. Chuyển đổi
+        // 5. Tính năng tương tác
         const formPass = latest.Form_Lead_Test.toLowerCase() === 'pass';
-        formatVal('val-form', formPass ? 'Nhận Lead OK' : (latest.Form_Lead_Test || 'Lỗi gửi Form'), formPass);
-        setBadge('badge-g5', formPass);
+        const callPass = latest.Call_Test.toLowerCase() === 'pass';
+        const chatPass = latest.Chat_Test.toLowerCase() === 'pass';
+        formatVal('val-form', formPass ? 'Hoạt động' : 'Lỗi gửi form', formPass);
+        formatVal('val-call', callPass ? 'Hoạt động' : 'Lỗi gọi', callPass);
+        formatVal('val-chat', chatPass ? 'Hoạt động' : 'Lỗi chat', chatPass);
+        setBadge('badge-g5', formPass && callPass && chatPass);
 
-        // 6. Sao lưu
+        // 6. Sao lưu & Bảo mật
         const backupPass = latest.Backup_Status.toLowerCase() === 'pass';
-        formatVal('val-backup', backupPass ? 'Đã sao lưu' : (latest.Backup_Status || 'Chưa backup'), backupPass);
-        setBadge('badge-g6', backupPass);
+        const secPass = latest.Security_Scan.toLowerCase() === 'pass';
+        formatVal('val-backup', backupPass ? 'Đã sao lưu' : 'Chưa backup', backupPass);
+        formatVal('val-security', secPass ? 'Sạch sẽ' : 'Cảnh báo mã độc', secPass);
+        setBadge('badge-g6', backupPass && secPass);
 
-        // Render bảng lịch sử các tuần
+        // Render bảng nhật ký lịch sử
         const tbody = document.getElementById('history-rows');
         tbody.innerHTML = '';
         cleanRows.slice().reverse().forEach(row => {
           const tr = document.createElement('tr');
           const isUptimeOk = (parseFloat(row.Uptime) || 0) >= 99.9;
-          const is404Ok = (parseInt(row.Broken_Links) || 0) === 0;
-          const isFormOk = row.Form_Lead_Test.toLowerCase() === 'pass';
-          const isBackupOk = row.Backup_Status.toLowerCase() === 'pass';
+          const is404Ok = (parseInt(row.Broken_Links) || 0) === 0 && (parseInt(row.Media_Errors) || 0) === 0;
+          const isInteractOk = row.Form_Lead_Test.toLowerCase() === 'pass' && row.Call_Test.toLowerCase() === 'pass' && row.Chat_Test.toLowerCase() === 'pass';
+          const isSecOk = row.Backup_Status.toLowerCase() === 'pass' && row.Security_Scan.toLowerCase() === 'pass';
 
           tr.innerHTML = `
-            <td class="px-5 py-3.5 font-bold text-slate-900">${row.Week_Date}</td>
-            <td class="px-4 py-3.5 ${isUptimeOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Uptime ? row.Uptime + '%' : '--'}</td>
-            <td class="px-4 py-3.5">${row.TTFB ? row.TTFB + 'ms' : '--'}</td>
-            <td class="px-4 py-3.5">${row.Mobile_Speed || '--'} / ${row.Desktop_Speed || '--'}</td>
-            <td class="px-4 py-3.5">${row.LCP ? row.LCP + 's' : '--'} / ${row.CLS || '--'}</td>
-            <td class="px-4 py-3.5 ${is404Ok ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Broken_Links || '--'}</td>
-            <td class="px-4 py-3.5">${row.Sitemap_Status || '--'} (${row.Index_Errors || '0'} lỗi)</td>
-            <td class="px-4 py-3.5 ${isFormOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Form_Lead_Test || '--'}</td>
-            <td class="px-4 py-3.5 ${isBackupOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Backup_Status || '--'}</td>
+            <td class="px-4 py-3.5 font-bold text-slate-900">${row.Week_Date}</td>
+            <td class="px-3 py-3.5 ${isUptimeOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Uptime ? row.Uptime + '%' : '--'}</td>
+            <td class="px-3 py-3.5">${row.TTFB ? row.TTFB + 'ms' : '--'}</td>
+            <td class="px-3 py-3.5">${row.Mobile_Speed || '--'} / ${row.Desktop_Speed || '--'}</td>
+            <td class="px-3 py-3.5">${row.LCP ? row.LCP + 's' : '--'} / ${row.CLS || '--'}</td>
+            <td class="px-3 py-3.5 ${is404Ok ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Broken_Links || '0'} / ${row.Media_Errors || '0'}</td>
+            <td class="px-3 py-3.5">${row.Sitemap_Status || '--'} (${row.Index_Errors || '0'} lỗi)</td>
+            <td class="px-3 py-3.5">${row.Robots_Status || '--'}</td>
+            <td class="px-3 py-3.5 ${isInteractOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Form_Lead_Test}/${row.Call_Test}/${row.Chat_Test}</td>
+            <td class="px-3 py-3.5 ${isSecOk ? 'text-emerald-700 font-bold' : 'text-[#8c0000] font-bold'}">${row.Backup_Status}/${row.Security_Scan}</td>
           `;
           tbody.appendChild(tr);
         });
 
-        // Gọi AI nhận xét
+        // Kích hoạt AI nhận xét toàn diện 20 chỉ số
         callGeminiReview(latest);
       }
     });
